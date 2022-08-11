@@ -1,0 +1,55 @@
+
+import javax.swing.JOptionPane;
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+
+/**
+ *
+ * @author SALA
+ */
+public class NumPrim {
+
+    /**
+     * @param args the command line arguments
+     */
+    static boolean primo(int numero){
+        //Contador para el ciclo while
+        int contador;
+        contador=2;
+        //Defino una variable verdadera
+        boolean prim=true;
+        //Lo que hace es ir de forma ascendenten
+        //Y revisar la divisibiliad con los numeros hasta llegar al num ingresado
+        //Se puede usar while o for
+        while((prim)&&(contador!=numero)){
+            if(numero%contador==0)
+        //Si el módulo es distinto a cero
+        //Cambia el valor de la variable prim
+                prim=false;
+            contador++;
+        }
+        return prim;
+    }
+    static void dato(){
+        String entrada=JOptionPane.showInputDialog(null,"Por favor ingrese un numero: ");
+        int numero=Integer.parseInt(entrada);
+        if(primo(numero)==true){
+            JOptionPane.showMessageDialog(null, "El dato "+numero+" es primo.");
+        }else{
+            JOptionPane.showMessageDialog(null, "El dato "+numero+" no es primo.");
+        }
+    }
+    public static void main(String[] args) {
+        // TODO code application logic here
+        char continuar='s';
+        while(continuar=='s'){
+            dato();
+            continuar=JOptionPane.showInputDialog(null, "¿Desea continuar? Press: s").charAt(0);
+
+        }
+    }
+    
+}
